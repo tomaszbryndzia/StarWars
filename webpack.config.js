@@ -8,6 +8,13 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
+          options: {
+            plugins: [
+              "@babel/plugin-syntax-dynamic-import",
+              ["@babel/plugin-proposal-decorators", { legacy: true }],
+              "babel-plugin-transform-class-properties",
+            ],
+          },
         },
       },
       {
