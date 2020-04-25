@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { simpleAction } from "./actions/simpleAction";
+import { fetchMovies } from "./actions/movieActions";
 
 // import Main from "./components/Main";
 // import Character from "./components/charDetails/Character";
 
 class App extends Component {
-  simpleAction = (event) => {
-    this.props.simpleAction();
+  fetchMovies = () => {
+    this.props.fetchMovies();
   };
 
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
               <div>test</div>
             </Route>
             <Route path="/">
-              <button onClick={this.simpleAction}>Test redux action</button>
+              <button onClick={this.fetchMovies}>Test redux action</button>
               <div>cos</div>
               <pre>{JSON.stringify(this.props)}</pre>
             </Route>
@@ -32,12 +32,14 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  ...state,
-});
+const mapStateToProps = (state) => {
+  console.log(state);
+
+  return { ...state };
+};
 
 const mapDispatchToProps = (dispatch) => ({
-  simpleAction: () => dispatch(simpleAction()),
+  fetchMovies: () => dispatch(fetchMovies()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
