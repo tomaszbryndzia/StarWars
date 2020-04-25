@@ -1,13 +1,36 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+
+// import Main from "./components/Main";
+// import Character from "./components/charDetails/Character";
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <div>cos tam</div>
-      </div>
+      <Router>
+        <div className="container">
+          <Switch>
+            <Route path="/:id">
+              <div>test</div>
+            </Route>
+            <Route path="/">
+              <button>Test redux action</button>
+              <div>cos</div>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  ...state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  simpleAction: () => dispatch(simpleAction()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
