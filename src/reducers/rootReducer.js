@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import movieReducer from "./movieReducer";
-import characterReducer from "./characterReducer";
+import searchReducer from "./searchReducer";
 
 export default combineReducers({
   movieReducer,
-  characterReducer,
+  searchReducer,
 });

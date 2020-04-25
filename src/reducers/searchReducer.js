@@ -1,37 +1,39 @@
 import {
-  FETCH_CHARACTER_BEGIN,
-  FETCH_CHARACTER_SUCCESS,
-  FETCH_CHARACTER_FAILURE,
-} from "../actions/characterActions";
+  SEARCH_BEGIN,
+  SEARCH_SUCCESS,
+  SEARCH_FAILURE,
+} from "../actions/searchActions";
 
 const initialState = {
-  character: {},
+  results: {},
+  count: 0,
   loading: false,
   error: null,
 };
 
-export default function characterReducer(state = initialState, action) {
+export default function searchReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_CHARACTER_BEGIN:
+    case SEARCH_BEGIN:
       return {
         ...state,
         loading: true,
         error: null,
       };
 
-    case FETCH_CHARACTER_SUCCESS:
+    case SEARCH_SUCCESS:
       return {
         ...state,
         loading: false,
-        character: action.payload.character,
+        results: action.payload.results,
+        count: action.payload.count,
       };
 
-    case FETCH_CHARACTER_FAILURE:
+    case SEARCH_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
-        character: {},
+        results: {},
       };
 
     default:
