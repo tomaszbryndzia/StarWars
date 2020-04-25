@@ -42,7 +42,7 @@ export default function movieReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        items: [],
+        movies: [],
       };
 
     default:
