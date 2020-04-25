@@ -3,10 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { fetchMovies } from "./actions/movieActions";
-import SearchInput from "./components/SearchInput";
-
-// import Main from "./components/Main";
-// import Character from "./components/charDetails/Character";
+import Homepage from "./components/Homepage";
 
 class App extends Component {
   componentDidMount = () => {
@@ -22,7 +19,7 @@ class App extends Component {
               <div>test</div>
             </Route>
             <Route path="/">
-              <SearchInput />
+              <Homepage />
             </Route>
           </Switch>
         </div>
