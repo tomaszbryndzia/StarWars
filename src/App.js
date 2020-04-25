@@ -3,27 +3,26 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { fetchMovies } from "./actions/movieActions";
+import SearchInput from "./components/SearchInput";
 
 // import Main from "./components/Main";
 // import Character from "./components/charDetails/Character";
 
 class App extends Component {
-  fetchMovies = () => {
+  componentDidMount = () => {
     this.props.fetchMovies();
   };
 
   render() {
     return (
       <Router>
-        <div className="container">
+        <div className="container pt-5 text-center">
           <Switch>
             <Route path="/:id">
               <div>test</div>
             </Route>
             <Route path="/">
-              <button onClick={this.fetchMovies}>Test redux action</button>
-              <div>cos</div>
-              <pre>{JSON.stringify(this.props)}</pre>
+              <SearchInput />
             </Route>
           </Switch>
         </div>
@@ -33,8 +32,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
-
   return { ...state };
 };
 
