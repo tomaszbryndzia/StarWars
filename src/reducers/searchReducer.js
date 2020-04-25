@@ -2,9 +2,11 @@ import {
   SEARCH_BEGIN,
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
+  SAVE_INPUT,
 } from "../actions/searchActions";
 
 const initialState = {
+  input: "",
   results: {},
   count: 0,
   loading: false,
@@ -34,6 +36,12 @@ export default function searchReducer(state = initialState, action) {
         loading: false,
         error: action.payload.error,
         results: {},
+      };
+
+    case SAVE_INPUT:
+      return {
+        ...state,
+        input: action.payload.input,
       };
 
     default:

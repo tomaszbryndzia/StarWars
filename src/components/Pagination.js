@@ -2,6 +2,7 @@ import React from "react";
 import uniquid from "uniqid";
 import { connect } from "react-redux";
 import { setPagination } from "../actions/paginationActions";
+import { searchPaginateResults } from "../actions/searchActions";
 
 class Pagination extends React.Component {
   state = {
@@ -11,6 +12,7 @@ class Pagination extends React.Component {
   setPage = (page) => {
     this.setState({ page });
     this.props.setPage(page);
+    this.props.searchPaginateResults(this.props.input, page);
   };
 
   render() {
@@ -33,11 +35,14 @@ class Pagination extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { count: state.searchReducer.count };
+  const { searchReducer } = state;
+  return { input: searchReducer.input, count: searchReducer.count };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   setPage: (page) => dispatch(setPagination(page)),
+  searchPaginateResults: (name, page) =>
+    dispatch(searchPaginateResults(name, page)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination);
