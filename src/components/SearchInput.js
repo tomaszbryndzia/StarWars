@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import starWarsImage from "../images/Star-Wars-Logo.png";
-import { fetchCharacter } from "../actions/characterActions";
+import { searchResults } from "../actions/searchActions";
 
 class SearchInput extends React.Component {
   state = {
@@ -13,7 +13,7 @@ class SearchInput extends React.Component {
     const input = e.target.value;
     this.setState({ input });
 
-    this.props.fetchCharacter(input);
+    this.props.searchResults(input);
   };
 
   render() {
@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCharacter: (name) => dispatch(fetchCharacter(name)),
+  searchResults: (name) => dispatch(searchResults(name)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);
