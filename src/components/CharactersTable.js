@@ -1,12 +1,12 @@
 import React from "react";
 import uniquid from "uniqid";
 import { connect } from "react-redux";
-import isEmpty from "lodash";
 import CharacterRow from "./CharacterTable/CharacterRow";
 import Pagination from "./Pagination";
+import { isEmpty } from "lodash";
 
 const CharactersTable = ({ characters }) => {
-  if (_.isEmpty(characters)) {
+  if (isEmpty(characters)) {
     return null;
   }
 

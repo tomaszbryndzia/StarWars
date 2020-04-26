@@ -23,7 +23,7 @@ export default function characterReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        results: action.payload.results,
+        character: action.payload.character,
       };
 
     case SEARCH_CHARACTER_FAILURE:
@@ -31,7 +31,7 @@ export default function characterReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        results: {},
+        character: {},
       };
 
     default:

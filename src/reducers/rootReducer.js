@@ -6,4 +6,5 @@ import characterReducer from "./characterReducer";
 export default combineReducers({
   movieReducer,
   searchReducer,
+  characterReducer,
 });

@@ -11,7 +11,7 @@ export const searchCharacterBegin = () => ({
 
 export const searchCharacterSuccess = (data) => ({
   type: SEARCH_CHARACTER_SUCCESS,
-  payload: { data },
+  payload: { character: data },
 });
 
 export const searchCharacterFailure = (error) => ({
