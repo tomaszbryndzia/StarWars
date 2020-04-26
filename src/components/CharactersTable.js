@@ -28,7 +28,6 @@ const CharactersTable = ({ characters }) => {
           ))}
         </tbody>
       </table>
-      <Pagination />
     </>
   );
 };
