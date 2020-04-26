@@ -16,8 +16,6 @@ class CharacterDetails extends React.Component {
   render() {
     const { character } = this.props;
 
-    console.log(character);
-
     if (isEmpty(character)) {
       return null;
     }

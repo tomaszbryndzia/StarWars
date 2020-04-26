@@ -5,18 +5,15 @@ import { setPagination } from "../actions/paginationActions";
 import { searchPaginateResults } from "../actions/searchActions";
 
 class Pagination extends React.Component {
-  state = {
-    page: 1,
-  };
-
   setPage = (page) => {
-    this.setState({ page });
     this.props.setPage(page);
     this.props.searchPaginateResults(this.props.input, page);
   };
 
   render() {
-    const pages = Math.ceil(this.props.count / 10);
+    const { page, count } = this.props;
+
+    const pages = Math.ceil(count / 10);
 
     const pagination = [];
     for (let i = 1; i <= pages; i++) {
@@ -25,7 +22,7 @@ class Pagination extends React.Component {
           key={uniquid()}
           number={i}
           setPage={this.setPage}
-          page={this.state.page}
+          page={page}
         />
       );
     }
@@ -35,8 +32,12 @@ class Pagination extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  const { searchReducer } = state;
-  return { input: searchReducer.input, count: searchReducer.count };
+  const { searchReducer, paginationReducer } = state;
+  return {
+    input: searchReducer.input,
+    count: searchReducer.count,
+    page: paginationReducer.page,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({
