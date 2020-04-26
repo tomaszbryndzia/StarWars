@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { connect } from "react-redux";
 import uniquid from "uniqid";
 
-class CharacterMovies extends Component {
+class CharacterMovies extends React.Component {
   state = {
     movies: [],
   };

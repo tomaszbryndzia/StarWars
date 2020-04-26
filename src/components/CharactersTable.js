@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import uniquid from "uniqid";
 import { connect } from "react-redux";
 import CharacterRow from "./CharacterTable/CharacterRow";

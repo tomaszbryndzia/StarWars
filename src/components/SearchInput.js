@@ -34,13 +34,9 @@ class SearchInput extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { ...state };
-};
-
 const mapDispatchToProps = (dispatch) => ({
   searchResults: (name) => dispatch(searchResults(name)),
   saveInput: (input) => dispatch(saveInput(input)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);
+export default connect(null, mapDispatchToProps)(SearchInput);

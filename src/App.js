@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -6,7 +6,7 @@ import { fetchMovies } from "./actions/movieActions";
 import Homepage from "./components/Homepage";
 import CharacterDetails from "./components/CharaterDetails";
 
-class App extends Component {
+class App extends React.Component {
   componentDidMount = () => {
     this.props.fetchMovies();
   };
@@ -29,12 +29,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { ...state };
-};
-
 const mapDispatchToProps = (dispatch) => ({
   fetchMovies: () => dispatch(fetchMovies()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
