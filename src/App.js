@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { fetchMovies } from "./actions/movieActions";
 import Homepage from "./components/Homepage";
+import CharacterDetails from "./components/CharaterDetails";
 
 class App extends Component {
   componentDidMount = () => {
@@ -16,7 +17,7 @@ class App extends Component {
         <div className="container pt-5 text-center">
           <Switch>
             <Route path="/:id">
-              <div>test</div>
+              <CharacterDetails />
             </Route>
             <Route path="/">
               <Homepage />
